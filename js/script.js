@@ -24,9 +24,10 @@ function veriricarOnline(){
     function ativo(){
         console.log("Presente")
         sedMensagem()
-        setTimeout(veriricarOnline, 5000);
+        setTimeout(veriricarOnline, 1000);
     }  
 }
+
 
 function bucarMensagens(){
     const buscar = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages");
@@ -34,10 +35,11 @@ function bucarMensagens(){
     function resposta(mensagens){
         console.log("achei");
         listaDeMensagens = mensagens.data
-        sedMensagem()
-        setTimeout(bucarMensagens, 5000)
+        sedMensagem() 
     }
+    setTimeout(bucarMensagens, 1000)
 }
+
 
 function hora(){
     let day = new Date();
