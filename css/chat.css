@@ -53,7 +53,6 @@ body{
     width: 100%;
     height: 80px;
     padding: 16px 22px;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -83,6 +82,63 @@ body{
     padding: 20px 8px;
     font-style: none;
     overflow: hidden;
+}
+.navbar{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 260px;
+    background-color: #fff;
+    height: 100vh;
+    padding: 12px;
+    z-index: 2;
+}
+.escondido{
+    display: none;
+}
+.titulo{
+    display: flex;
+    height: 60px;
+    font-weight: 700;
+    text-align: center;
+}
+.listaDeOnline{
+    height: 400px;
+    overflow-y:auto;
+}
+.listaDeOnline li{
+    display: flex;
+    justify-items: center;
+    justify-content: space-between;
+}
+.listaDeOnline li:hover{
+    cursor:pointer;
+}
+.listaDeOnline div{
+    display: flex;
+    justify-items: center;
+}
+.contatos li, .types div{
+    display: flex;
+    height: 36px;
+    font-size: 16px;
+    font-weight: 400;
+    align-items: center;
+}
+.types ul li{
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+}
+.types ul li:hover{
+    cursor: pointer;
+}
+.titulo p{
+    margin: auto;
+}
+.titulo ion-icon{
+    font-size: 40px;
+    color: rgb(78, 157, 188);
 }
 .entrou-saiu{
     background: #DCDCDC;
