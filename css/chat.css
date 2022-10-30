@@ -67,9 +67,6 @@ body{
     width: 42px;
     height: 30px;
 }
-.mensagens{
-    margin-top: 106px;
-}
 .mensagens ul{
     font-weight: 400;
     font-size: 14px;
@@ -78,7 +75,6 @@ body{
     display: flex;
     align-items: center;
     margin-bottom: 4px;
-    height: 40px;
     padding: 20px 8px;
     font-style: none;
     overflow: hidden;
@@ -139,6 +135,10 @@ body{
 .titulo ion-icon{
     font-size: 40px;
     color: rgb(78, 157, 188);
+}
+.check{
+    color: green;
+    font-size: 25px;
 }
 .entrou-saiu{
     background: #DCDCDC;

@@ -32,13 +32,13 @@ function veriricarOnline(){
     }
     const verificar = axios.post("https://mock-api.driven.com.br/api/v6/uol/status", verificarUser);
     verificar.then(ativo);
-    verificar.catch(ausente);
     function ativo(){
         console.log("Presente")
         participantesOnlines()
     } 
+    setTimeout(veriricarOnline, 5000);
 }
-setTimeout(veriricarOnline, 5000);
+
 
 
 function bucarMensagens(){
@@ -49,9 +49,8 @@ function bucarMensagens(){
         listaDeMensagens = mensagens.data
         sedMensagem() 
     }
-    setTimeout(bucarMensagens, 2000)
+    setTimeout(bucarMensagens, 3000)
 }
-
 
 function hora(){
     let day = new Date();
@@ -77,6 +76,7 @@ function servSMS(){
     listaDeMensagens = objMess;
     const messEnviadas = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', objMess);
     messEnviadas.then(lerResposta)
+    mess = document.querySelector('.text').value = "";
 }
 function lerResposta(){
     console.log("mensagem enviada");
@@ -99,7 +99,7 @@ function sedMensagem(){
             `<li class="reservadamente">
                  <p><span>(${time})</span> <strong>${nomes}</strong> reservadamente para <strong>Maria</strong>: ${sms}</p>
             </li>`
-        }else if(listaDeMensagens[i].type === "status" ){
+        }else{
             ul.innerHTML += `
             <li class="entrou-saiu">
                 <p><span>(${time})</span> <strong>${nomes}</strong> entra na sala...</p>
@@ -107,7 +107,9 @@ function sedMensagem(){
         }
        
     }
+    ul.lastElementChild.scrollIntoView()
 } 
+
 function participantesOnlines(){
     const userOnline = axios.get('https://mock-api.driven.com.br/api/v6/uol/participants');
     userOnline.then(on);
@@ -123,15 +125,17 @@ function listadeUsarios(){
     for(let i = 0; i < userOn.length; i++){
        let online = userOn[i].name
        listaOnline.innerHTML += ` 
-        <li onclick='selecionando(this)'>
+        <li onclick='selecionado(this)'>
             <div>
                 <ion-icon name="person-circle"></ion-icon>
                 <p>${online}</p>
             </div>
-            <ion-icon name="checkmark"></ion-icon>
+            <ion-icon class="escondido" name="checkmark"></ion-icon>
         </li>`
     }
 }
+setTimeout(listadeUsarios, 5000);
+
 hora();
 participantesOnlines()
 bucarMensagens();
