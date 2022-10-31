@@ -67,6 +67,11 @@ body{
     width: 42px;
     height: 30px;
 }
+.mensagens {
+    width: 100%;
+    margin-top: 106;
+    margin-bottom: 84px;
+}
 .mensagens ul{
     font-weight: 400;
     font-size: 14px;
